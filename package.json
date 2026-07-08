@@ -1,0 +1,27 @@
+{
+  "name": "web-quan-li-xuong",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Hệ thống quản lý xưởng gỗ",
+  "main": "source/app.js",
+  "scripts": {
+    "start": "firebase emulators:start",
+    "serve": "firebase serve",
+    "deploy": "firebase deploy",
+    "build": "echo 'No build step needed for this SPA'",
+    "seed:demo-users": "node scripts/seed-demo-users.mjs",
+    "test": "echo 'Testing not configured yet'"
+  },
+  "keywords": [
+    "workshop",
+    "management",
+    "firebase",
+    "javascript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "^12.15.0"
+  },
+  "devDependencies": {}
+}

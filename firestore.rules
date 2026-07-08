@@ -1,0 +1,79 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Kiểm tra xem user có phải là admin
+    function isAdmin() {
+      return exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    // Kiểm tra xem user có phải là giáo viên
+    function isTeacher() {
+      return exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'teacher';
+    }
+
+    // Kiểm tra trạng thái người dùng
+    function isActiveUser() {
+      return exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+             get(/databases/$(database)/documents/users/$(request.auth.uid)).data.status == 'active';
+    }
+
+    // Collection: users
+    match /users/{userId} {
+      allow read: if request.auth != null;
+      allow create: if request.auth != null;
+      allow update: if request.auth.uid == userId || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Collection: materials
+    match /materials/{document=**} {
+      allow read: if request.auth != null && isActiveUser();
+      allow create: if (isAdmin() || isTeacher()) && isActiveUser();
+      allow update, delete: if (isAdmin() || isTeacher()) && isActiveUser();
+    }
+
+    // Collection: equipments
+    match /equipments/{document=**} {
+      allow read: if request.auth != null && isActiveUser();
+      allow create: if (isAdmin() || isTeacher()) && isActiveUser();
+      allow update, delete: if (isAdmin() || isTeacher()) && isActiveUser();
+    }
+
+    // Collection: borrowRequests
+    match /borrowRequests/{document=**} {
+      allow read: if request.auth != null && isActiveUser();
+      allow create: if request.auth != null && isActiveUser();
+      allow update, delete: if (isAdmin() || isTeacher()) && isActiveUser();
+    }
+
+    // Collection: studentEntries
+    match /studentEntries/{document=**} {
+      allow read: if request.auth != null && isActiveUser();
+      allow create: if request.auth != null && isActiveUser();
+      allow update, delete: if (isAdmin() || isTeacher()) && isActiveUser();
+    }
+
+    // Collection: messages
+    match /messages/{document=**} {
+      allow read, write: if request.auth != null && isActiveUser();
+    }
+
+    // Collection: notifications
+    match /notifications/{document=**} {
+      allow read: if request.auth != null && request.auth.uid == resource.data.recipientId;
+      allow create: if request.auth != null && isActiveUser();
+      allow update: if request.auth != null && (request.auth.uid == resource.data.recipientId || isAdmin());
+    }
+
+    // Collection: schedules
+    match /schedules/{document=**} {
+      allow read: if request.auth != null && isActiveUser();
+      allow create, update, delete: if (isAdmin() || isTeacher()) && isActiveUser();
+    }
+  }
+}
+

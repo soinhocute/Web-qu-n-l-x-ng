@@ -4,7 +4,7 @@ export function renderPublicPage() {
   content.innerHTML = `
     <div class="public-container">
       <div class="public-header">
-        <h1><i class="fas fa-hammer"></i> Xưởng Gỗ - Trường ĐH Công Nghiệp</h1>
+        <h1><i class="fas fa-hammer"></i> Xưởng Gỗ - Trường ĐH Công Nghệ Kỹ Thuật</h1>
         <p>Trung tâm đào tạo kỹ năng chế biến gỗ hiện đại</p>
       </div>
 
@@ -17,7 +17,7 @@ export function renderPublicPage() {
           <p>
             Xưởng gỗ của trường là một cơ sở đào tạo chuyên dụng, được trang bị 
             các máy móc hiện đại nhất phục vụ cho quá trình học tập và nghiên cứu 
-            của sinh viên ngành Công nghiệp gỗ.
+            của sinh viên ngành Kỹ nghệ gỗ.
           </p>
           <h3 style="margin-top: 20px; color: var(--primary-color);">Trang Thiết Bị Chính</h3>
           <ul style="margin: 15px 0; padding-left: 20px;">

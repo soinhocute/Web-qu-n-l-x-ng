@@ -82,8 +82,8 @@ export function renderPublicPage() {
         <div class="card-body">
           <div class="contact-info">
             <p><i class="fas fa-map-marker-alt"></i> <strong>Địa chỉ:</strong> 01 Võ Văn Ngân, Thủ Đức, TP. Hồ Chí Minh</p>
-            <p><i class="fas fa-phone"></i> <strong>Điện thoại:</strong> *** **** ***</p>
-            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> xuong.go@hcmut.edu.vn</p>
+            <p><i class="fas fa-phone"></i> <strong>Điện thoại:</strong> *** **** 508</p>
+            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> xuong.go@hcmute.edu.vn</p>
             <p><i class="fas fa-globe"></i> <strong>Website:</strong> www.hcmute.edu.vn/xuong</p>
           </div>
         </div>

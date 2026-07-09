@@ -288,7 +288,7 @@ body {
 }
 
 .btn-success {
-  background-color: var(--success-color);
+  /*background-color: var(--success-color);*/
   color: white;
 }
 
@@ -1334,7 +1334,7 @@ button.tab-btn {
 }
 
 .btn-danger {
-  background: linear-gradient(135deg, #b64b3d, #d36f55);
+  /*background: linear-gradient(135deg, #b64b3d, #d36f55);*/
   color: white;
 }
 
@@ -1927,6 +1927,7 @@ body::after {
 
 .modal-wide .modal-body {
   overflow-y: auto;
+  max-height: 90vh;
 }
 
 .equipment-page .page-header {

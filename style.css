@@ -1316,7 +1316,7 @@ button.tab-btn {
 }
 
 .btn-success {
-  background: linear-gradient(135deg, #2f7d4f, #4f9b63);
+  /*background: linear-gradient(135deg, #2f7d4f, #4f9b63);*/
   color: white;
 }
 

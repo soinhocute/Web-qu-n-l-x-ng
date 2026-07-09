@@ -288,7 +288,7 @@ body {
 }
 
 .btn-success {
-  /*background-color: var(--success-color);*/
+  background-color: var(--success-color);
   color: green;
 }
 

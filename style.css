@@ -289,7 +289,7 @@ body {
 
 .btn-success {
   background-color: var(--success-color);
-  /*color: green;*/
+  color: green;
 }
 
 .btn-success:hover {
